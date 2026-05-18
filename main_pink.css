@@ -1,0 +1,436 @@
+/* 1. Box-sizing reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+/* 2. Base typography & layout */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #fdf6ec;
+  color: #1c1c1c;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  font-size: 1.0rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  color: #ef798a;
+  margin-bottom: 1.5rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+main.container {
+  padding-top: 2rem;
+}
+
+/* 3. Topbar & navigation */
+.topbar {
+  background: #fdf6ec;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  color: #1c1c1c;
+  font-size: 1.3rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1c1c1c;
+  margin-left: 1.5rem;
+  font-weight: 500;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ef798a;
+}
+
+/* 4. Research page headings */
+.section-title {
+  font-size: 1.75rem;
+  color: #ef798a;
+  margin: 0rem 0 0.6rem;
+  font-weight: 600;
+}
+
+/* 5. Title row with buttons */
+.pub-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.1rem;
+  flex-wrap: wrap;
+}
+
+.paper-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  flex: 1 1 auto;
+}
+
+/* 6. Metadata (journal + description) */
+.pub-journal, .pub-coauthors {
+  font-size: 0.9rem;
+  color: #767676;
+  margin: 0;
+  line-height: 1.4;
+}
+.pub-journal {
+  margin-top: 0.1rem;
+  font-style: normal;
+}
+.pub-coauthors {
+  margin-bottom: 0.3rem;
+}
+.pub-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #444;
+    margin: 0.3rem 0 0.3rem;
+
+}
+
+/* 7. Buttons */
+.pub-buttons {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  background: none;
+}
+
+.btn-like {
+  padding: 0.2em 0.5em;
+  font-size: 0.85rem;
+  border: 1px solid #ef798a;
+  border-radius: 5px;
+  background: none;
+  color: #ef798a;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+.btn-like:hover,
+.btn-like.active {
+  background: #ef798a;
+  color: white;
+}
+
+/* 8. Abstract toggle section */
+.abstract-content.hidden {
+  display: none;
+}
+.abstract-content {
+  background-color: #e7f3e2;
+  border-left: 4px solid #ef798a;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #222;
+  animation: fadeIn 0.3s ease-in-out;
+  max-width: 850px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 9. Paper block spacing */
+.pub {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f3e6e8;
+  margin-bottom: 0.8rem;
+}
+
+/* 10. Intro section (used on index page) */
+.intro {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+.bio-text {
+  flex: 3 1 500px;
+}
+.bio-photo {
+  flex: 1 1 160px;
+  max-width: 180px;
+}
+.avatar {
+  width: 100%;
+  border-radius: 6px;
+  border: 3px solid #ef798a;
+}
+
+/* 11. Email + disclaimer */
+.email {
+  color: #ef798a;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px dashed #ef798a;
+}
+.email:hover {
+  background-color: #e7f3e2;
+}
+.disclaimer {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* 12. Coauthor links */
+.coauthor-link {
+  color: #ef798a;
+  text-decoration: none;
+  border-bottom: 1px dashed #ef798a;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+.coauthor-link:hover {
+  background-color: #e7f3e2;
+}
+.pub-journal:not(:has(+ .pub-coauthors)) {
+  margin-bottom: 0.3rem;
+}
+
+/* 13. Responsive layout */
+@media (max-width: 700px) {
+  .pub-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .paper-title {
+    font-size: 1.05rem;
+  }
+
+  .pub-buttons {
+    gap: 0.4rem;
+    margin: 0.2rem 0;
+  }
+
+  .btn-like {
+    padding: 0.3em 0.8em;
+    font-size: 0.85rem;
+    border: 1px dashed #ef798a;
+    border-radius: 2em;
+  }
+
+  .btn-like:hover {
+    background-color: #ef798a;
+    color: white;
+    border-style: solid;
+  }
+
+  .pub-journal, .pub-coauthors {
+    display: inline;
+    font-size: 0.95rem;
+    position: relative;
+    top: -0.1em;
+  }
+
+  .pub-journal:has(+ .pub-coauthors)::after {
+    content: " // ";
+  }
+
+  .pub-desc, .abstract-content {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .abstract-content {
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-top: 0.7rem;
+  }
+
+  .topbar {
+    padding: -0.2rem 0.8rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .nav .logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .nav nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .nav nav a {
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  main.container {
+    padding-top: 0.5rem;
+  }
+
+  .intro {
+    padding-top: 0.5rem;
+  }
+}
+
+/* 14. Navigation photo (square with modal behavior) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin-left: auto;
+}
+
+.nav-pic-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-left: 1.2rem;
+}
+
+.nav-pic {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 1.5px solid #ef798a;
+  border-radius: 12px; /* <-- Square with soft edges */
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+
+
+.nav-pic:hover {
+  box-shadow: 0 0 10px 2px #ef798a80;
+  filter: brightness(1.08);
+}
+
+/* Tooltip */
+.hover-tooltip {
+  position: absolute;
+  bottom: -1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ef798a;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25em 0.6em;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.nav-pic-wrapper:hover .hover-tooltip {
+  opacity: 1;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 250, 250, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.modal-img {
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  border: 4px solid #ef798a;
+  box-shadow: 0 8px 24px #e7f3e2;
+  z-index: 1;
+  animation: zoomIn 0.3s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #ef798a;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.hidden {
+  display: none;
+}

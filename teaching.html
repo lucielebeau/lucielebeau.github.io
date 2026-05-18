@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teaching – Lucie Lebeau</title>
+  <link href="main_pink.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="logo">Lucie Lebeau</div>
+      <div class="nav-right">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="research.html">Research</a>
+          <a class="active" href="teaching.html">Teaching</a>
+          <a href="vita.html">CV</a>
+        </nav>
+        <img src="images/website_headshot2_cropped.jpg" alt="Click to enlarge" class="nav-pic" id="navPic">
+      </div>
+    </div>
+  </header>
+
+ <main class="container">
+  <h2 class="section-title">Teaching</h2>
+
+<h3>Current Courses – Fall 2025</h3>
+<ul>
+  <li>
+    ECON 331: Monetary Theory and Policy - Wellesley College
+   <!--  <a class="btn-like" href="https://wellesley.instructure.com/section01" target="_blank">Section 01</a>
+    <a class="btn-like" href="https://wellesley.instructure.com/section02" target="_blank">Section 02</a> -->
+  </li>
+</ul>
+
+<h3 style="margin-top: 2rem;">Previously Taught</h3>
+<ul>
+   <li>
+    ECON 202: Intermediate Macroeconomic Analysis - Wellesley College (Fall 2025)
+  </li>
+  <li>ECON 100C: Intermediate Economics III – UC Irvine (Summer 2020)</li>
+</ul>
+
+</main>
+
+
+  <div id="photoModal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <img src="images/website_headshot2.jpg" alt="Lucie Lebeau" class="modal-img" />
+    <button class="modal-close" id="closeModal">&times;</button>
+  </div>
+
+  <script>
+    const navPic = document.getElementById("navPic");
+    const modal = document.getElementById("photoModal");
+    const closeBtn = document.getElementById("closeModal");
+
+    navPic.addEventListener("click", () => {
+      modal.classList.remove("hidden");
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (
+        e.target === modal || 
+        e.target.classList.contains("modal-overlay") ||
+        e.target === closeBtn
+      ) {
+        modal.classList.add("hidden");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.classList.add("hidden");
+      }
+    });
+  </script>
+</body>
+</html>
